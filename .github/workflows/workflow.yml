@@ -1,25 +1,25 @@
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
 
 name: AzureCLISample
 
 jobs:
-
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-
     - name: Azure Login
+      # https://github.com/marketplace/actions/azure-login
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Azure CLI script
+      # https://github.com/marketplace/actions/azure-cli-action
       uses: azure/CLI@v1
       with:
         azcliversion: latest
         inlineScript: |
           set -ex
           ls ~/.azure
-          cat ~/.azure/versionCheck.json
-          cat ~/.azure/accessTokens.json
-          az account show --sdk-auth
+          az --version
+          az account show
+          az group list

@@ -22,6 +22,4 @@ jobs:
           ls ~/.azure
           cat ~/.azure/versionCheck.json
           cat ~/.azure/accessTokens.json
-          az --version
-          az account show
-          az group list
+          az account show --sdk-auth

@@ -20,6 +20,7 @@ jobs:
         inlineScript: |
           set -ex
           ls ~/.azure
+          cat ~/.azure/versionCheck.json
           az --version
           az account show
           az group list

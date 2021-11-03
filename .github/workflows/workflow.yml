@@ -21,6 +21,7 @@ jobs:
           set -ex
           ls ~/.azure
           cat ~/.azure/versionCheck.json
+          cat ~/.azure/accessTokens.json
           az --version
           az account show
           az group list
